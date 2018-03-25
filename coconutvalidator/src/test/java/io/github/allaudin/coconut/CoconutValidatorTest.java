@@ -111,4 +111,5 @@ public class CoconutValidatorTest {
         Mockito.verify(coconutView).setErrorMessage(errorMessage);
         Assert.assertFalse(condition);
     }
+
 } // CoconutValidatorTest

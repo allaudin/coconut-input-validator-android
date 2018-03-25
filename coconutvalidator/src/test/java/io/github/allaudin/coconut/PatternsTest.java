@@ -32,13 +32,13 @@ public class PatternsTest {
     @Test
     public void verifyOnlyDigitsTrue() throws Exception {
         assertTrue("Digits pattern returns false for digits",
-                getPattern(R.string.cnt_all_digits).matcher("1234").matches());
+                getPattern(R.string.cnt_digits_only).matcher("1234").matches());
     }
 
     @Test
     public void verifyOnlyDigitsFalse() throws Exception {
         assertFalse("Digits pattern returns true for string value.",
-                getPattern(R.string.cnt_all_digits).matcher("foo").matches());
+                getPattern(R.string.cnt_digits_only).matcher("foo").matches());
     }
 
     @Test

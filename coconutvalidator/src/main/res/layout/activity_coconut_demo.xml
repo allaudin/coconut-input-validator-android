@@ -91,7 +91,7 @@
         android:hint="@string/mandatory_field_error"
         android:singleLine="true"
         app:cnt_et_error_message="@string/mandatory_field_error"
-        app:cnt_et_validation_regex="@string/cnt_all_digits"
+        app:cnt_et_validation_regex="@string/cnt_digits_only"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/optional_field" />
