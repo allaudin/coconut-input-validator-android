@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CoconutInputEditText">
+        <attr name="cnt_input_et_validation_regex" format="string" />
+        <attr name="cnt_input_et_error_message" format="string" />
+        <attr name="cnt_input_et_optional" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="CoconutEditText">
+        <attr name="cnt_et_validation_regex" format="string" />
+        <attr name="cnt_et_error_message" format="string" />
+        <attr name="cnt_et_optional" format="boolean" />
+    </declare-styleable>
+
+</resources>

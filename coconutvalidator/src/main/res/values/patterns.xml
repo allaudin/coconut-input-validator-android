@@ -1,0 +1,6 @@
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="TypographyDashes">
+    <string name="app_name">Coconut Validator</string>
+    <string name="cnt_all_digits">[0-9]+</string>
+    <string name="cnt_non_empty">"^(?=\\s*\\S).*$"</string>
+    <string name="cnt_email_address"><![CDATA[^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$]]></string>
+</resources>
