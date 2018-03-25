@@ -5,7 +5,7 @@
     android:id="@+id/content"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="io.github.allaudin.demo.MainActivity">
+    tools:context="io.github.allaudin.coconut.CoconutDemoActivity">
 
     <io.github.allaudin.coconut.widget.CoconutTextInputLayout
         android:id="@+id/email_layout"
@@ -90,7 +90,7 @@
         android:layout_marginTop="8dp"
         android:hint="@string/mandatory_field_error"
         android:singleLine="true"
-        app:cnt_et_error_message="Can not be empty. Please enter digits only."
+        app:cnt_et_error_message="@string/mandatory_field_error"
         app:cnt_et_validation_regex="@string/cnt_all_digits"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

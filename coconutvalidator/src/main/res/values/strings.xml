@@ -1,0 +1,11 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="enter_email">Enter Email</string>
+    <string name="email_error">Please enter valid email</string>
+    <string name="enter_password">Enter password</string>
+    <string name="password_regex" tools:ignore="TypographyDashes">"^([a-zA-z0-9*.@#]){5,11}$"</string>
+    <string name="pass_error">Password must contain at least 5 characters (max 11). Allowed special characters (*.@#)</string>
+    <string name="optional_field">Optional Field</string>
+    <string name="mandatory_field_error">Mandatory Field (Only digits)</string>
+    <string name="all_ok">All OK.</string>
+    <string name="submit">Submit</string>
+</resources>
