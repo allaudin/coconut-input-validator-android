@@ -5,11 +5,14 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputLayout;
 import android.util.AttributeSet;
 
-
-
 /**
+ * A parent wrapper for {@link CoconutTextInputLayout} responsible for
+ * setting and removing error messages when validated via
+ * {@link io.github.allaudin.coconut.CoconutValidator}
+ *
  * @author Muhammad allaudin
  *         Created on 2018-03-24.
+ * @see io.github.allaudin.coconut.CoconutValidator#areFieldsValid(CoconutView...)
  */
 
 public class CoconutTextInputLayout extends TextInputLayout implements CoconutView {
@@ -36,7 +39,6 @@ public class CoconutTextInputLayout extends TextInputLayout implements CoconutVi
         setWatcher(input);
         return input;
     }
-
 
 
     @Override

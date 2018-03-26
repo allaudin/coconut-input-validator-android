@@ -5,6 +5,9 @@ import android.text.Editable;
 import android.text.TextWatcher;
 
 /**
+ * Text watcher for removing errors form {@link CoconutView} after
+ * text is changed.
+ *
  * @author Muhammad allaudin
  *         Created on 2018-03-24.
  */
@@ -33,5 +36,11 @@ public abstract class CoconutTextWatcher implements TextWatcher {
         onTextChange(view);
     }
 
+    /**
+     * Called when text change is detected on {@link CoconutInput} of
+     * {@link CoconutView}
+     *
+     * @param view current view
+     */
     protected abstract void onTextChange(CoconutView view);
 }

@@ -11,8 +11,14 @@ import io.github.allaudin.coconut.R;
 
 
 /**
+ * A specialized {@link CoconutInput} which contains information about
+ * it's validation regex, error message and either field is optional or not.
+ * <p>
+ * This must be used as a  child layout in {@link CoconutTextInputLayout}
+ *
  * @author Muhammad allaudin
  *         Created on 2018-03-24.
+ * @see CoconutTextInputLayout
  */
 
 public class CoconutInputEditText extends TextInputEditText implements CoconutInput {

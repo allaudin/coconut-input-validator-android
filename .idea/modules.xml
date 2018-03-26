@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/EaseValidator.iml" filepath="$PROJECT_DIR$/EaseValidator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CoconutValidator.iml" filepath="$PROJECT_DIR$/CoconutValidator.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/coconutvalidator/coconutvalidator.iml" filepath="$PROJECT_DIR$/coconutvalidator/coconutvalidator.iml" />
     </modules>

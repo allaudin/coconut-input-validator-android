@@ -11,6 +11,10 @@ import io.github.allaudin.coconut.R;
 
 
 /**
+ * An error aware edit text which contains validation regex for validating it's
+ * input data and error message to be displayed when an incorrect data is detected
+ * via {@link io.github.allaudin.coconut.CoconutValidator}
+ *
  * @author Muhammad allaudin
  *         Created on 2018-03-24.
  */
