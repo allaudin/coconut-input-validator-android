@@ -7,7 +7,7 @@ Coconut Validator is **Input data validator** for Android.
 
 ## Why Coconut Validator?
 
-*Coconut Input Validator* moves your data validation logic from `Java code` to `xml`. By this,
+*Coconut Input Validator* moves your data validation logic from `Java code` to `XML`. By this,
 you are able to **define `validation regex` and `error messages` directly on `view definition`**.
 Later on, these views or their parent view can be passed to `CoconutValidator` which validates
  the input and shows error messages for incorrect input. Error messages are removed when
@@ -45,14 +45,30 @@ Later on, these views or their parent view can be passed to `CoconutValidator` w
        CoconutValidator.areFieldsValidRecursive(root);
     ```
 
+## Validation
+
+Once `Coconut` views are defined in the `XML`, you can pass those views directly to `CoconutValidator` utility
+class which handles all the validation of input data and displaying respective error messages. This class
+has 2 main methods. `areFieldsValid(CoconutView... views)` & `areFieldsValidRecursive(ViewGroup parent)`. First method
+accepts `CoconutViews` as arguments and validates them on by one while second method accepts `root view` which
+contains `CoconutViews` as argument. It finds all the `CoconutViews` in the parent layout and validates them.
+
+### Example
+
+```java
+// recursive
+ boolean areFieldsValid = CoconutValidator.areFieldsValidRecursive(root);
+ // manuall passing of views
+ boolean areFieldsValid = CoconutValidator.areFieldsValid(emailView, passwordView);
+```
 ## Commonly Used Regex
 
 Commonly used regex patterns are available from the *library strings* starting with `cnt` e.g.
 `R.string.cnt_non_empty` for a field which should not be empty.
 
-    ```xml
+```xml
     app:cnt_et_validation_regex="@string/cnt_non_empty"
-    ```
+```
 
 ## Download [ ![Download](https://api.bintray.com/packages/mallaudin/android/coconutvalidator/images/download.svg) ](https://bintray.com/mallaudin/android/coconutvalidator/_latestVersion)
 
