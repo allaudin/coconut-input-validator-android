@@ -63,7 +63,7 @@ contains `CoconutViews` as argument. It finds all the `CoconutViews` in the pare
 ```
 ## Commonly Used Regex
 
-Commonly used regex patterns are available from the **library strings** starting with `cnt` e.g.
+Commonly used regex patterns are available from the **library strings** starting with prefix `cnt` e.g.
 `R.string.cnt_non_empty` for a field which should not be empty.
 
 ```xml
