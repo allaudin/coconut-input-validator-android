@@ -54,15 +54,6 @@ Later on, these views or their parent view can be passed to `CoconutValidator` w
 
 ## Download [ ![Download](https://api.bintray.com/packages/mallaudin/android/coconutvalidator/images/download.svg) ](https://bintray.com/mallaudin/android/coconutvalidator/_latestVersion)
 
-1. Add following URL to root project repositories.
-
-```xml
-maven {
-            url "https://dl.bintray.com/mallaudin/android"
-        }
-```
-
-2. Declare dependency in build.gradle file
 ```xml
 implementation 'io.github.allaudin:coconutvalidator:latest-version@aar'
 ```
