@@ -50,6 +50,7 @@ public class PatternsTest {
         assertFalse(message, pattern.matcher("").matches());
     }
 
+    
     @Test
     public void verifyNonEmptyTrue() throws Exception {
         String message = "Non empty pattern returns false for non-empty value";
