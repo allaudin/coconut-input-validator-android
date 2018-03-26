@@ -3,7 +3,7 @@
 
 Coconut Validator is **Input data validator** for Android.
 
-![](https://github.com/allaudin/coconut-input-validator/blob/master/coconut.gif)
+![](https://github.com/allaudin/coconut-input-validator/blob/master/coconut.gif=350x600)
 
 ## Why Coconut Validator?
 
