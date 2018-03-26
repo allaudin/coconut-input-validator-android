@@ -8,7 +8,7 @@ Coconut Validator is **Input data validator** for Android.
 ## Why Coconut Validator?
 
 *Coconut Input Validator* moves your data validation logic from `Java code` to `xml`. By this,
-you are able to define `validation regex` and `error messages` directly on `view definition`.
+you are able to **define `validation regex` and `error messages` directly on `view definition`**.
 Later on, these views or their parent view can be passed to `CoconutValidator` which validates
  the input and shows error messages for incorrect input. Error messages are removed when
  an input is updated after error.
@@ -45,7 +45,9 @@ Later on, these views or their parent view can be passed to `CoconutValidator` w
        CoconutValidator.areFieldsValidRecursive(root);
     ```
 
-4. Commonly used regex patterns are available from the library strings starting with `cnt` e.g.
+## Commonly Used Regex
+
+Commonly used regex patterns are available from the *library strings* starting with `cnt` e.g.
 `R.string.cnt_non_empty` for a field which should not be empty.
 
     ```xml
