@@ -34,8 +34,8 @@ Later on, these views or their parent view can be passed to `CoconutValidator` w
 `error message` and `validation regex` properties.
 
     ```xml
-   app:cnt_et_error_message="bar"
-   app:cnt_et_validation_regex="foo"
+   app:cnt_et_error_message="Only Digits"
+   app:cnt_et_validation_regex="[0-9]+"
     ```
 3. Pass the `root view group` to `CoconutValidator.areFieldsValidRecursive` for validating inputs.
 
