@@ -50,7 +50,11 @@ Later on, these views or their parent view can be passed to `CoconutValidator` w
     app:cnt_et_validation_regex="@string/cnt_non_empty"
     ```
 
-## Download
+## Download [ ![Download](https://api.bintray.com/packages/mallaudin/android/coconutvalidator/images/download.svg) ](https://bintray.com/mallaudin/android/coconutvalidator/_latestVersion)
+
+```xml
+implementation 'io.github.allaudin:coconutvalidator:latest-version@aar'
+```
 
 ## To Do List
  - Create error aware spinner view
