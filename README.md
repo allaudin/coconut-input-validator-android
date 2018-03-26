@@ -3,6 +3,8 @@
 
 Coconut Validator is **Input data validator** for Android.
 
+[](https://github.com/allaudin/coconut-input-validator/blob/master/coconut.gif)
+
 ## Why Coconut Validator?
 
 *Coconut Input Validator* moves your data validation logic from `Java code` to `xml`. By this,
