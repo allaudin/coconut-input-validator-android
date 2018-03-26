@@ -48,7 +48,7 @@ Later on, these views or their parent view can be passed to `CoconutValidator` w
 ## Validation
 
 Once `Coconut` views are defined in the `XML`, you can pass those views directly to `CoconutValidator` utility
-class which handles all the validation of input data and displaying respective error messages. This class
+class which handles all the **validation of input data and displaying respective error messages**. This class
 has **2 main** methods, `areFieldsValid(CoconutView... views)` & `areFieldsValidRecursive(ViewGroup parent)`. First method
 accepts `CoconutViews` as arguments and validates them one by one while second method accepts `root view` which
 contains `CoconutViews` as argument. It finds all the `CoconutViews` in the parent layout and validates them.
@@ -63,7 +63,7 @@ contains `CoconutViews` as argument. It finds all the `CoconutViews` in the pare
 ```
 ## Commonly Used Regex
 
-Commonly used regex patterns are available from the *library strings* starting with `cnt` e.g.
+Commonly used regex patterns are available from the **library strings** starting with `cnt` e.g.
 `R.string.cnt_non_empty` for a field which should not be empty.
 
 ```xml
