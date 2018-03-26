@@ -43,6 +43,14 @@ Later on, these views or their parent view can be passed to `CoconutValidator` w
        CoconutValidator.areFieldsValidRecursive(root);
     ```
 
+4. Commonly used regex patterns are available from the library strings starting with `cnt` e.g.
+`R.string.cnt_non_empty` for a field which should not be empty.
+
+    ```xml
+    app:cnt_et_validation_regex="@string/cnt_non_empty"
+    ```
+
+
 License
 -------
 
