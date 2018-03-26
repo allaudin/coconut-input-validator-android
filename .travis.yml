@@ -1,9 +1,14 @@
 language: android
 android:
   components:
+    - tools
+    - platform-tools
+    - extra-android-m2repository
+    - extra-google-android-support
     - build-tools-27.0.3
     - android-27
   licenses:
+      - 'android-sdk-preview-license-.+'
       - 'android-sdk-license-.+'
       - 'google-gdk-license-.+'
 before_install:
