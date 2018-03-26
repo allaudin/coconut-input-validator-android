@@ -1,0 +1,9 @@
+language: android
+android:
+  components:
+    - build-tools-27.0.3
+    - android-27
+before_install:
+    - chmod +x gradlew
+install:
+  - ./gradlew clean test
