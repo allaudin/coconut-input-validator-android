@@ -19,3 +19,15 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+ext {
+    version = '1.0.0'
+    repo = 'android'
+    user = 'mallaudin'
+    groupId = "io.github.allaudin"
+    licenses = ['Apache-2.0']
+    publish = false
+    override = true
+    key = '6792bc2dedcffcddfc17bb2123eb67a0a6b54481'
+} // ext
+

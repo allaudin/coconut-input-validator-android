@@ -1,5 +1,3 @@
-apply plugin: 'com.android.library'
-
 buildscript {
 
     repositories {
@@ -10,6 +8,15 @@ buildscript {
         classpath 'com.android.tools.build:gradle:3.0.1'
     }
 }
+
+plugins {
+    id "com.jfrog.bintray" version "1.7.3"
+}
+
+apply plugin: 'com.android.library'
+apply plugin: 'maven'
+
+version = rootProject.ext.version
 
 repositories {
     google()
@@ -23,7 +30,7 @@ android {
         minSdkVersion 17
         targetSdkVersion 27
         versionCode 1
-        versionName "1.0.0"
+        versionName "${version}"
     }
     buildTypes {
         release {
@@ -43,9 +50,78 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:appcompat-v7:27.1.0'
     implementation 'com.android.support:design:27.1.0'
+    implementation 'com.google.android:annotations:4.1.1.4'
+
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     testImplementation 'junit:junit:4.12'
     testImplementation 'org.mockito:mockito-all:1.10.19'
     testImplementation 'org.robolectric:robolectric:3.8'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
 }
+
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+
+task javadoc(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+artifacts {
+    archives javadocJar
+    archives sourcesJar
+}
+
+assemble.dependsOn 'sourcesJar'
+
+
+tasks.bintrayUpload.dependsOn 'uploadArchives'
+tasks.uploadArchives.dependsOn 'assemble'
+
+
+bintray {
+
+    user = "${rootProject.user}"
+    key = "${rootProject.key}"
+
+    publish = rootProject.ext.publish
+    override = rootProject.ext.override
+
+    pkg {
+
+        filesSpec {
+            into "."
+            from 'build/release'
+        } // fileSpecs
+
+        repo = "${rootProject.repo}"
+        name = "${project.name}"
+        licenses = rootProject.ext.licenses
+
+        //noinspection GroovyAssignabilityCheck
+        version {
+            name = "${project.version}"
+            released  = new Date()
+            vcsTag = "${project.version}"
+        } // version
+
+    } // pkg
+
+} // bintray
+
+
+uploadArchives {
+    repositories.mavenDeployer {
+        pom.groupId = rootProject.ext.groupId
+        pom.artifactId = project.name
+        pom.version = project.version
+        repository(url: "file://${buildDir}/release")
+    }
+}
+

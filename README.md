@@ -23,7 +23,7 @@ Later on, these views or their parent view can be passed to `CoconutValidator` w
               android:layout_marginEnd="8dp"
               android:layout_marginStart="8dp"
               android:layout_marginTop="8dp"
-              android:hint="@string/mandatory_field_error"
+              android:hint="@string/mandatory_field"
               android:singleLine="true"
               app:layout_constraintEnd_toEndOf="parent"
               app:layout_constraintStart_toStartOf="parent"
@@ -49,6 +49,11 @@ Later on, these views or their parent view can be passed to `CoconutValidator` w
     ```xml
     app:cnt_et_validation_regex="@string/cnt_non_empty"
     ```
+
+## Download
+
+## To Do List
+ - Create error aware spinner view
 
 
 License
