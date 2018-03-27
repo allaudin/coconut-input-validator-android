@@ -32,7 +32,7 @@ Later on, these views or their parent view can be passed to `CoconutValidator` w
               app:layout_constraintTop_toBottomOf="@+id/optional_field" />
     ```
 
-2. Set validation regex and error message on the view in `xml` using
+2. Set **validation regex** and **error message** on the view in `xml` using
 `error message` and `validation regex` properties.
 
     ```xml
@@ -61,7 +61,7 @@ contains `CoconutViews` as argument. It finds all the `CoconutViews` in the pare
  // manuall passing of views
  boolean areFieldsValid = CoconutValidator.areFieldsValid(emailView, passwordView);
 ```
-## Commonly Used Regex
+## Commonly Used Regex Patterns
 
 Commonly used regex patterns are available from the **library strings** starting with prefix `cnt` e.g.
 `R.string.cnt_non_empty` for a field which should not be empty.
@@ -69,6 +69,12 @@ Commonly used regex patterns are available from the **library strings** starting
 ```xml
     app:cnt_et_validation_regex="@string/cnt_non_empty"
 ```
+
+## Key Points
+
+- A field is considered as `mandatory` if it has both **regex** and **error message** defined.
+- Any mandatory field which does not have an **error message** or **validation regex** will be **skipped** while validating input.
+- Validation of a **mandatory field** can be skipped by setting `app:cnt_input_et_optional` property to `true` on the view.
 
 ## Download [ ![Download](https://api.bintray.com/packages/mallaudin/android/coconutvalidator/images/download.svg) ](https://bintray.com/mallaudin/android/coconutvalidator/_latestVersion)
 
