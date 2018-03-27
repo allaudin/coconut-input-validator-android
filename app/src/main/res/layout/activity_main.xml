@@ -27,7 +27,7 @@
             android:singleLine="true"
             android:textSize="14sp"
             app:cnt_input_et_error_message="@string/email_error"
-            app:cnt_input_et_validation_regex="@string/cnt_email_address" />
+            app:cnt_input_et_validation_regex="@string/cnt_regex_email_address" />
     </io.github.allaudin.coconut.widget.CoconutTextInputLayout>
 
 
@@ -91,7 +91,7 @@
         android:hint="@string/mandatory_field_error"
         android:singleLine="true"
         app:cnt_et_error_message="Can not be empty. Please enter digits only."
-        app:cnt_et_validation_regex="@string/cnt_digits_only"
+        app:cnt_et_validation_regex="@string/cnt_regex_digits_only"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/optional_field" />

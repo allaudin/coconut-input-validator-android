@@ -63,11 +63,11 @@ contains `CoconutViews` as argument. It finds all the `CoconutViews` in the pare
 ```
 ## Commonly Used Regex Patterns
 
-Commonly used regex patterns are available from the **library strings** starting with prefix `cnt` e.g.
-`R.string.cnt_non_empty` for a field which should not be empty.
+Commonly used regex patterns are available from the **library strings** starting with prefix `cnt_regex` e.g.
+`R.string.cnt_regex_non_empty` for a field which should not be empty.
 
 ```xml
-    app:cnt_et_validation_regex="@string/cnt_non_empty"
+    app:cnt_et_validation_regex="@string/cnt_regex_non_empty"
 ```
 
 ## Key Points

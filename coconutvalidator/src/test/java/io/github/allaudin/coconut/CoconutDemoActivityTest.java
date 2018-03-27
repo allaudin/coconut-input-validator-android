@@ -55,9 +55,9 @@ public class CoconutDemoActivityTest {
 
     @Test
     public void verifyRegexPatterns() {
-        assertEquals(activity.getString(R.string.cnt_email_address),
+        assertEquals(activity.getString(R.string.cnt_regex_email_address),
                 emailView.getValidationRegex());
-        assertEquals(activity.getString(R.string.cnt_digits_only),
+        assertEquals(activity.getString(R.string.cnt_regex_digits_only),
                 mandatoryField.getValidationRegex());
     }
 

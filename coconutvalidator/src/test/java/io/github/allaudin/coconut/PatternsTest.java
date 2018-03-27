@@ -32,19 +32,19 @@ public class PatternsTest {
     @Test
     public void verifyOnlyDigitsTrue() throws Exception {
         assertTrue("Digits pattern returns false for digits",
-                getPattern(R.string.cnt_digits_only).matcher("1234").matches());
+                getPattern(R.string.cnt_regex_digits_only).matcher("1234").matches());
     }
 
     @Test
     public void verifyOnlyDigitsFalse() throws Exception {
         assertFalse("Digits pattern returns true for string value.",
-                getPattern(R.string.cnt_digits_only).matcher("foo").matches());
+                getPattern(R.string.cnt_regex_digits_only).matcher("foo").matches());
     }
 
     @Test
     public void verifyNonEmptyFalse() throws Exception {
         String message = "Non empty pattern returns true for empty value";
-        Pattern pattern = getPattern(R.string.cnt_non_empty);
+        Pattern pattern = getPattern(R.string.cnt_regex_non_empty);
         assertFalse(message, pattern.matcher("       \n").matches());
         assertFalse(message, pattern.matcher("       ").matches());
         assertFalse(message, pattern.matcher("").matches());
@@ -54,7 +54,7 @@ public class PatternsTest {
     @Test
     public void verifyNonEmptyTrue() throws Exception {
         String message = "Non empty pattern returns false for non-empty value";
-        Pattern pattern = getPattern(R.string.cnt_non_empty);
+        Pattern pattern = getPattern(R.string.cnt_regex_non_empty);
         assertTrue(message, pattern.matcher("value").matches());
         assertTrue(message, pattern.matcher("1345923&*^%&^").matches());
     }
@@ -62,7 +62,7 @@ public class PatternsTest {
     @Test
     public void verifyEmailAddressFalse() throws Exception {
         String message = "Email address pattern returns true for invalid email.";
-        Pattern pattern = getPattern(R.string.cnt_email_address);
+        Pattern pattern = getPattern(R.string.cnt_regex_email_address);
         assertFalse(message, pattern.matcher("ali.com").matches());
         assertFalse(message, pattern.matcher("@gmail.com").matches());
         assertFalse(message, pattern.matcher("foo@bar").matches());
@@ -71,7 +71,7 @@ public class PatternsTest {
     @Test
     public void verifyEmailAddressTrue() throws Exception {
         String message = "Email address pattern returns false for valid email.";
-        Pattern pattern = getPattern(R.string.cnt_email_address);
+        Pattern pattern = getPattern(R.string.cnt_regex_email_address);
         assertTrue(message, pattern.matcher("foo@bar.com").matches());
     }
 
