@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.submit).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                boolean areFieldsValid = CoconutValidator.areFieldsValidRecursive(root);
+                boolean areFieldsValid = CoconutValidator.validateLayout(root);
                 if (areFieldsValid) {
                     Snackbar.make(root, R.string.all_ok, Snackbar.LENGTH_SHORT)
                             .show();

@@ -14,8 +14,8 @@ public class CoconutDemoActivity extends AppCompatActivity {
         findViewById(R.id.submit).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CoconutValidator.areFieldsValidRecursive(
-                        (ViewGroup) findViewById(R.id.content));
+                CoconutValidator.validateLayout(
+                         findViewById(R.id.content));
             }
         });
     } // onCreate

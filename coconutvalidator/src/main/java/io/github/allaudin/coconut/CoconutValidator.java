@@ -1,5 +1,6 @@
 package io.github.allaudin.coconut;
 
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -58,13 +59,31 @@ public final class CoconutValidator {
 
     /**
      * Validates all {@link CoconutView}s in this parent
+     * This method is deprecate. User {@link CoconutValidator#validateLayout(View)} instead
+     * @param parent parent view group containing {@link CoconutView}s
+     * @return true - if all inputs are valid, false otherwise
+     *
+     */
+    @Deprecated
+    public static boolean areFieldsValidRecursive(ViewGroup parent) {
+        List<CoconutView> views = new ArrayList<>();
+        getViews(parent, views);
+        return areFieldsValid(views.toArray(new CoconutView[]{}));
+    }
+
+    /**
+     * Validates all {@link CoconutView}s in this parent
      *
      * @param parent parent view group containing {@link CoconutView}s
      * @return true - if all inputs are valid, false otherwise
      */
-    public static boolean areFieldsValidRecursive(ViewGroup parent) {
+    public static boolean validateLayout(View parent) {
+        if(!(parent instanceof ViewGroup)){
+            Log.w("CoconutValidator", "validateLayout must get ViewGroup as parameter.");
+            return false;
+        }
         List<CoconutView> views = new ArrayList<>();
-        getViews(parent, views);
+        getViews((ViewGroup) parent, views);
         return areFieldsValid(views.toArray(new CoconutView[]{}));
     }
 
