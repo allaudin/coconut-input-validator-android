@@ -15,7 +15,7 @@ import io.github.allaudin.coconut.widget.CoconutView;
  * Utility class for validating {@link CoconutView}s
  *
  * @author Muhammad allaudin
- *         Created on 2018-03-24.
+ * Created on 2018-03-24.
  */
 
 public final class CoconutValidator {
@@ -39,14 +39,16 @@ public final class CoconutValidator {
                 continue;
             }
 
-            if (!inputView.isOptional() && inputView.getInput() == null) {
+            String input = inputView.getInput();
+
+            if (!inputView.isOptional() && input == null) {
                 ret = false;
                 continue;
             }
             String regex = inputView.getValidationRegex();
             String errorMessage = inputView.getErrorMessages();
-            if (regex != null && errorMessage != null) {
-                boolean patternMatches = Pattern.compile(regex).matcher(inputView.getInput())
+            if (regex != null && errorMessage != null && input != null) {
+                boolean patternMatches = Pattern.compile(regex).matcher(input)
                         .matches();
                 if (!patternMatches) {
                     ret = false;
@@ -60,9 +62,9 @@ public final class CoconutValidator {
     /**
      * Validates all {@link CoconutView}s in this parent
      * This method is deprecate. User {@link CoconutValidator#validateLayout(View)} instead
+     *
      * @param parent parent view group containing {@link CoconutView}s
      * @return true - if all inputs are valid, false otherwise
-     *
      */
     @Deprecated
     public static boolean areFieldsValidRecursive(ViewGroup parent) {
@@ -74,11 +76,11 @@ public final class CoconutValidator {
     /**
      * Validates all {@link CoconutView}s in this parent
      *
-     * @param parent parent view group containing {@link CoconutView}s
+     * @param parent parent {@link ViewGroup} containing {@link CoconutView}s
      * @return true - if all inputs are valid, false otherwise
      */
     public static boolean validateLayout(View parent) {
-        if(!(parent instanceof ViewGroup)){
+        if (!(parent instanceof ViewGroup)) {
             Log.w("CoconutValidator", "validateLayout must get ViewGroup as parameter.");
             return false;
         }
