@@ -46,10 +46,16 @@ android {
     }
 }
 
+configurations {
+    javadocDeps
+}
+
+
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:appcompat-v7:27.1.1'
     implementation 'com.android.support:design:27.1.1'
+    javadocDeps 'com.google.android:annotations:4.1.1.4'
     implementation 'com.google.android:annotations:4.1.1.4'
     implementation 'com.android.support.constraint:constraint-layout:1.1.2'
     testImplementation 'junit:junit:4.12'
@@ -66,6 +72,7 @@ task sourcesJar(type: Jar) {
 task javadoc(type: Javadoc) {
     source = android.sourceSets.main.java.srcDirs
     classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+    classpath += configurations.javadocDeps
 }
 
 task javadocJar(type: Jar, dependsOn: javadoc) {
