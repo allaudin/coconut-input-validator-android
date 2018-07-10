@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.Editable;
 import android.util.AttributeSet;
+import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
@@ -44,7 +45,7 @@ public class ErrorAwareEditText extends LinearLayout implements CoconutInput, Co
 
         String editTextHint;
         int errorColor = -1;
-        float textSize = -1, errorTextSize = -1;
+        int textSize = -1, errorTextSize = -1;
 
         try {
             editTextHint = typedArray.getString(
@@ -52,8 +53,8 @@ public class ErrorAwareEditText extends LinearLayout implements CoconutInput, Co
             errorColor = typedArray.getColor(
                     R.styleable.ErrorAwareEditText_cnt_eav_error_color, errorColor);
 
-            textSize = typedArray.getDimension(R.styleable.ErrorAwareEditText_cnt_eav_text_size, textSize);
-            errorTextSize = typedArray.getDimension(R.styleable.ErrorAwareEditText_cnt_eav_error_text_size, errorTextSize);
+            textSize = typedArray.getDimensionPixelSize(R.styleable.ErrorAwareEditText_cnt_eav_text_size, textSize);
+            errorTextSize = typedArray.getDimensionPixelSize(R.styleable.ErrorAwareEditText_cnt_eav_error_text_size, errorTextSize);
 
             errorMessage = typedArray.getString(
                     R.styleable.ErrorAwareEditText_cnt_eav_error_message);
@@ -81,10 +82,10 @@ public class ErrorAwareEditText extends LinearLayout implements CoconutInput, Co
         }
 
         if (textSize != -1) {
-            editTextView.setTextSize(textSize);
+            editTextView.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
         }
         if (errorTextSize != -1) {
-            errorTextView.setTextSize(errorTextSize);
+            errorTextView.setTextSize(TypedValue.COMPLEX_UNIT_PX, errorTextSize);
         }
         addView(editTextView, params);
         addView(errorTextView, params);

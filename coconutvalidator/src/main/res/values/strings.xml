@@ -8,4 +8,5 @@
     <string name="mandatory_field_error">Mandatory Field (Only digits)</string>
     <string name="all_ok">All OK.</string>
     <string name="submit">Submit</string>
+    <string name="phone_error">Please enter phone in format XXX-XXX-XXXX</string>
 </resources>
