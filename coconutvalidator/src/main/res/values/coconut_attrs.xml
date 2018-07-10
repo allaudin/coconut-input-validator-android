@@ -12,4 +12,15 @@
         <attr name="cnt_et_optional" format="boolean" />
     </declare-styleable>
 
+    <declare-styleable name="ErrorAwareEditText">
+        <attr name="cnt_eav_validation_regex" format="string" />
+        <attr name="cnt_eav_error_message" format="string" />
+        <attr name="cnt_eav_error_color" format="color" />
+        <attr name="cnt_eav_text_size" format="dimension" />
+        <attr name="cnt_eav_error_text_size" format="dimension" />
+        <attr name="cnt_eav_hint" format="string" />
+        <attr name="cnt_eav_optional" format="boolean" />
+        <attr name="android:textSize" />
+    </declare-styleable>
+
 </resources>

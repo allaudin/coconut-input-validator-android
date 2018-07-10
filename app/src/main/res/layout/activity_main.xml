@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <android.support.constraint.ConstraintLayout
         android:id="@+id/content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -65,16 +65,18 @@
             android:id="@+id/submit"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="16dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="16dp"
             android:background="@color/colorPrimary"
             android:text="@string/submit"
             android:textColor="@android:color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/mandatory_field" />
+            app:layout_constraintTop_toBottomOf="@+id/et_aware" />
 
         <io.github.allaudin.coconut.widget.CoconutEditText
             android:id="@+id/optional_field"
@@ -113,5 +115,24 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/optional_field" />
+
+        <io.github.allaudin.coconut.widget.ErrorAwareEditText
+            android:id="@+id/et_aware"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            app:cnt_eav_error_color="@color/colorRed"
+            app:cnt_eav_error_message="@string/email_error"
+            app:cnt_eav_error_text_size="8sp"
+            app:cnt_eav_text_size="8sp"
+            app:cnt_eav_hint="Enter Email"
+            app:cnt_eav_validation_regex="@string/cnt_regex_email_address"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mandatory_field" />
     </android.support.constraint.ConstraintLayout>
 </layout>
