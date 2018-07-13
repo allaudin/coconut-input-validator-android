@@ -116,7 +116,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/optional_field" />
 
-        <io.github.allaudin.coconut.widget.ErrorAwareEditText
+        <io.github.allaudin.coconut.widget.CoconutErrorAwareEt
             android:id="@+id/et_aware"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

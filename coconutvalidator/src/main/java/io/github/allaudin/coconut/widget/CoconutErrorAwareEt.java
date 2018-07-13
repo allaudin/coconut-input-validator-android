@@ -15,7 +15,20 @@ import android.widget.TextView;
 
 import io.github.allaudin.coconut.R;
 
-public class ErrorAwareEditText extends LinearLayout implements CoconutInput, CoconutView {
+public class CoconutErrorAwareEt extends LinearLayout implements CoconutInput, CoconutView {
+
+    private static class DefaultViewProvider implements ViewProvider {
+
+        @Override
+        public EditText getEditTextView(Context context, ViewGroup parent) {
+            return new EditText(context);
+        }
+
+        @Override
+        public TextView getErrorTextView(Context context, ViewGroup parent) {
+            return new TextView(context);
+        }
+    } // DefaultViewProvider
 
     private boolean isOptional;
     private String errorMessage;
@@ -24,15 +37,15 @@ public class ErrorAwareEditText extends LinearLayout implements CoconutInput, Co
     private EditText editTextView;
     private TextView errorTextView;
 
-    public ErrorAwareEditText(Context context) {
+    public CoconutErrorAwareEt(Context context) {
         this(context, null);
     }
 
-    public ErrorAwareEditText(Context context, AttributeSet attrs) {
+    public CoconutErrorAwareEt(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public ErrorAwareEditText(Context context, AttributeSet attrs, int defStyleAttr) {
+    public CoconutErrorAwareEt(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(context, attrs, defStyleAttr);
     }
@@ -40,7 +53,7 @@ public class ErrorAwareEditText extends LinearLayout implements CoconutInput, Co
     private void init(Context context, AttributeSet attrs, int defStyleAttr) {
 
         TypedArray typedArray = context.obtainStyledAttributes(attrs,
-                R.styleable.ErrorAwareEditText,
+                R.styleable.CoconutErrorAwareEt,
                 defStyleAttr, 0);
 
         String editTextHint;
@@ -49,23 +62,29 @@ public class ErrorAwareEditText extends LinearLayout implements CoconutInput, Co
 
         try {
             editTextHint = typedArray.getString(
-                    R.styleable.ErrorAwareEditText_cnt_eav_hint);
+                    R.styleable.CoconutErrorAwareEt_cnt_eav_hint);
             errorColor = typedArray.getColor(
-                    R.styleable.ErrorAwareEditText_cnt_eav_error_color, errorColor);
+                    R.styleable.CoconutErrorAwareEt_cnt_eav_error_color, errorColor);
 
-            textSize = typedArray.getDimensionPixelSize(R.styleable.ErrorAwareEditText_cnt_eav_text_size, textSize);
-            errorTextSize = typedArray.getDimensionPixelSize(R.styleable.ErrorAwareEditText_cnt_eav_error_text_size, errorTextSize);
+            textSize = typedArray.getDimensionPixelSize(R.styleable.CoconutErrorAwareEt_cnt_eav_text_size, textSize);
+            errorTextSize = typedArray.getDimensionPixelSize(R.styleable.CoconutErrorAwareEt_cnt_eav_error_text_size, errorTextSize);
 
             errorMessage = typedArray.getString(
-                    R.styleable.ErrorAwareEditText_cnt_eav_error_message);
+                    R.styleable.CoconutErrorAwareEt_cnt_eav_error_message);
             validationRegex = typedArray.getString(
-                    R.styleable.ErrorAwareEditText_cnt_eav_validation_regex);
+                    R.styleable.CoconutErrorAwareEt_cnt_eav_validation_regex);
             isOptional = typedArray.getBoolean(
-                    R.styleable.ErrorAwareEditText_cnt_eav_optional, false);
+                    R.styleable.CoconutErrorAwareEt_cnt_eav_optional, false);
         } finally {
             typedArray.recycle();
         }
 
+        generateViews(context, editTextHint, errorColor, textSize, errorTextSize);
+
+        setWatcher(this);
+    }
+
+    private void generateViews(Context context, String editTextHint, int errorColor, int textSize, int errorTextSize) {
         setOrientation(VERTICAL);
         ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
@@ -89,8 +108,6 @@ public class ErrorAwareEditText extends LinearLayout implements CoconutInput, Co
         }
         addView(editTextView, params);
         addView(errorTextView, params);
-
-        setWatcher(this);
     }
 
     @Override
@@ -176,26 +193,6 @@ public class ErrorAwareEditText extends LinearLayout implements CoconutInput, Co
     }
 
 
-    private static class DefaultViewProvider implements ViewProvider {
-
-        @Override
-        public EditText getEditTextView(Context context, ViewGroup parent) {
-            return new EditText(context);
-        }
-
-        @Override
-        public TextView getErrorTextView(Context context, ViewGroup parent) {
-            return new TextView(context);
-        }
-    } // DefaultViewProvider
-
-    public interface ViewProvider {
-        EditText getEditTextView(Context context, ViewGroup parent);
-
-        TextView getErrorTextView(Context context, ViewGroup parent);
-    } // ViewProvider
-
-
     public void setOptional(boolean optional) {
         isOptional = optional;
     }
@@ -211,4 +208,31 @@ public class ErrorAwareEditText extends LinearLayout implements CoconutInput, Co
     public void setValidationRegex(String validationRegex) {
         this.validationRegex = validationRegex;
     }
+
+
+    /**
+     * A provider for generating {@link EditText} for input and a
+     * {@link TextView} for showing errors.
+     */
+    public interface ViewProvider {
+
+        /**
+         * Generate {@link EditText} for getting input
+         *
+         * @param context context for generating view
+         * @param parent  parent of the view
+         * @return {@link EditText} for getting input
+         */
+        EditText getEditTextView(Context context, ViewGroup parent);
+
+        /**
+         * Generate {@link TextView} for showing input errors
+         *
+         * @param context context for generating view
+         * @param parent  parent of the view
+         * @return {@link TextView} for showing errors
+         */
+
+        TextView getErrorTextView(Context context, ViewGroup parent);
+    } // ViewProvider
 } // ErrorAwareEditText
