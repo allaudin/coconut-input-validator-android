@@ -21,7 +21,7 @@ task clean(type: Delete) {
 }
 
 ext {
-    version = '1.0.2'
+    version = '1.1.0'
     repo = 'android'
     user = 'mallaudin'
     groupId = "io.github.allaudin"
