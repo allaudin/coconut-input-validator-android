@@ -71,6 +71,35 @@ Commonly used regex patterns are available from the **library strings** starting
     app:cnt_et_validation_regex="@string/cnt_regex_non_empty"
 ```
 
+## Coconut Error Aware EditText
+
+`CoconutErrorAwareEt` allows you display error message directly below the `EditText` on error and hide them accordingly.
+
+```xml
+   <io.github.allaudin.coconut.widget.CoconutErrorAwareEt
+            android:id="@+id/et_aware"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            app:cnt_eav_error_color="@color/colorRed"
+            app:cnt_eav_error_message="@string/phone_error"
+            app:cnt_eav_error_text_size="12sp"
+            app:cnt_eav_hint="Enter Phone Number (xxx-xxx-xxxx)"
+            app:cnt_eav_text_size="15sp"
+            app:cnt_eav_validation_regex="@string/cnt_regex_phone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mandatory_field" />
+```
+
+This is different than `Default EditText` as default error views only show the red circle and hide the actuall error message
+while this (`CoconutErrorAwareEt`) will show the complete error message directly below the `EditText`. You will achieve the same effect
+as you will when using `TextInputLayout`.
+
 ## Key Points
 
 - A field is considered as `mandatory` if it has both **regex** and **error message** defined.

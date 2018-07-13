@@ -18,3 +18,8 @@ Version 1.0.2 *(2018-07-01)*
 
 * Prevent `null` crash from `Pattern Matcher` when input is `null`
 * Other minor code and doc improvements
+
+Version 1.1.0 *(2018-07-12)*
+----------------------------
+
+* Added new layout (CoconutErrorAwareEt) for nicely showing errors below EditText
