@@ -43,14 +43,14 @@ Later on, these views or their parent view can be passed to `CoconutValidator` w
 3. Pass the `root view group` to `CoconutValidator.areFieldsValidRecursive` for validating inputs.
 
     ```java
-       CoconutValidator.areFieldsValidRecursive(root);
+       CoconutValidator.validateLayout(root);
     ```
 
 ## Validation
 
 Once `Coconut` views are defined in the `XML`, you can pass those views directly to `CoconutValidator` utility
 class which handles all the **validation of input data and displaying respective error messages**. This class
-has **2 main** methods, `areFieldsValid(CoconutView... views)` & `areFieldsValidRecursive(ViewGroup parent)`. First method
+has **2 main** methods, `areFieldsValid(CoconutView... views)` & `validateLayout(ViewGroup parent)`. First method
 accepts `CoconutViews` as arguments and validates them one by one while second method accepts `root view` which
 contains `CoconutViews` as argument. It finds all the `CoconutViews` in the parent layout and validates them.
 

@@ -23,3 +23,8 @@ Version 1.1.0 *(2018-07-12)*
 ----------------------------
 
 * Added new layout (CoconutErrorAwareEt) for nicely showing errors below EditText
+
+Version 1.1.1 *(2018-07-14)*
+----------------------------
+
+* `validateLayout(View parent)` methods is now deprecated. Use `validateLayout(ViewGroup parent)` instead.

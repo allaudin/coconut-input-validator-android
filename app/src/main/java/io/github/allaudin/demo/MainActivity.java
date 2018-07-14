@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         binding.submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                boolean areFieldsValid = CoconutValidator.validateLayout(binding.getRoot());
+                boolean areFieldsValid = CoconutValidator.validateLayout((ViewGroup) binding.getRoot());
                 if (areFieldsValid) {
                     Snackbar.make(binding.getRoot(), R.string.all_ok, Snackbar.LENGTH_SHORT)
                             .show();
