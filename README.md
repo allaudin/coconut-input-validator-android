@@ -40,7 +40,7 @@ Later on, these views or their parent view can be passed to `CoconutValidator` w
    app:cnt_et_error_message="Only Digits"
    app:cnt_et_validation_regex="[0-9]+"
     ```
-3. Pass the `root view group` to `CoconutValidator.areFieldsValidRecursive` for validating inputs.
+3. Pass the `root view group` to `CoconutValidator.validateLayout` for validating inputs.
 
     ```java
        CoconutValidator.validateLayout(root);
@@ -58,7 +58,7 @@ contains `CoconutViews` as argument. It finds all the `CoconutViews` in the pare
 
 ```java
 // recursive
- boolean areFieldsValid = CoconutValidator.areFieldsValidRecursive(root);
+ boolean areFieldsValid = CoconutValidator.validateLayout(root);
  // manuall passing of views
  boolean areFieldsValid = CoconutValidator.areFieldsValid(emailView, passwordView);
 ```
