@@ -4,10 +4,10 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v7.view.ContextThemeWrapper;
 import android.text.Editable;
 import android.util.AttributeSet;
 import android.util.TypedValue;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -20,8 +20,18 @@ public class CoconutErrorAwareEt extends LinearLayout implements CoconutInput, C
     private static class DefaultViewProvider implements ViewProvider {
 
         @Override
-        public EditText getEditTextView(Context context, ViewGroup parent) {
-            return new EditText(context);
+        public EditText getEditTextView(Context context, ViewGroup parent, int style) {
+
+            EditText editText;
+
+            if (style != 0) {
+                editText = new EditText(new ContextThemeWrapper(context, style),
+                        null,0);
+            } else {
+                editText = new EditText(new ContextThemeWrapper(context, context.getTheme()),
+                        null, R.attr.editTextStyle);
+            }
+            return editText;
         }
 
         @Override
@@ -56,6 +66,7 @@ public class CoconutErrorAwareEt extends LinearLayout implements CoconutInput, C
                 R.styleable.CoconutErrorAwareEt,
                 defStyleAttr, 0);
 
+
         String editTextHint;
         int errorColor = -1;
         int textSize = -1, errorTextSize = -1;
@@ -79,12 +90,18 @@ public class CoconutErrorAwareEt extends LinearLayout implements CoconutInput, C
             typedArray.recycle();
         }
 
-        generateViews(context, editTextHint, errorColor, textSize, errorTextSize);
+        generateViews(context, attrs.getStyleAttribute(),
+                editTextHint, errorColor, textSize, errorTextSize);
 
         setWatcher(this);
     }
 
-    private void generateViews(Context context, String editTextHint, int errorColor, int textSize, int errorTextSize) {
+    private void generateViews(Context context,
+                               int style,
+                               String editTextHint,
+                               int errorColor,
+                               int textSize,
+                               int errorTextSize) {
         setOrientation(VERTICAL);
         ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
@@ -92,7 +109,7 @@ public class CoconutErrorAwareEt extends LinearLayout implements CoconutInput, C
 
         ViewProvider viewProvider = getViewProvider();
 
-        editTextView = viewProvider.getEditTextView(context, this);
+        editTextView = viewProvider.getEditTextView(context, this, style);
         errorTextView = viewProvider.getErrorTextView(context, this);
         editTextView.setHint(editTextHint);
         errorTextView.setVisibility(GONE);
@@ -110,24 +127,11 @@ public class CoconutErrorAwareEt extends LinearLayout implements CoconutInput, C
         addView(errorTextView, params);
     }
 
+
     @Override
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        int width = MeasureSpec.getSize(widthMeasureSpec);
-        int height = 0;
-
-        for (int i = 0, len = getChildCount(); i < len; i++) {
-            View child = getChildAt(i);
-            measureChild(child, widthMeasureSpec, heightMeasureSpec);
-            if (child.getVisibility() == VISIBLE) {
-                height += child.getMeasuredHeight();
-            }
-        }
-
-        setMeasuredDimension(resolveSize(width, widthMeasureSpec),
-                resolveSize(height, heightMeasureSpec));
-
-    } // onMeasure
-
+    protected void onLayout(boolean changed, int l, int t, int r, int b) {
+        super.onLayout(changed, l, t, r, b);
+    }
 
     protected ViewProvider getViewProvider() {
         return new DefaultViewProvider();
@@ -223,7 +227,7 @@ public class CoconutErrorAwareEt extends LinearLayout implements CoconutInput, C
          * @param parent  parent of the view
          * @return {@link EditText} for getting input
          */
-        EditText getEditTextView(Context context, ViewGroup parent);
+        EditText getEditTextView(Context context, ViewGroup parent, int style);
 
         /**
          * Generate {@link TextView} for showing input errors
