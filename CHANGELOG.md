@@ -33,3 +33,8 @@ Version 1.1.2 *(2018-08-19)*
 ----------------------------
 
 * Fix 'style' bug in `CoconutErrorAwareEt` which prevented `EditText` from picking `style`attributes from current theme.
+
+Version 1.1.3 *(2018-09-15)*
+----------------------------
+
+* Add necessary `getter/setter` methods for `EditText` in `CoconutErrorAwareEt`
