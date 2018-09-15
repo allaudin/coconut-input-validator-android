@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.StringRes;
 import android.support.v7.view.ContextThemeWrapper;
 import android.text.Editable;
 import android.util.AttributeSet;
@@ -142,6 +143,14 @@ public class CoconutErrorAwareEt extends LinearLayout implements CoconutInput, C
     public String getInput() {
         Editable text = editTextView.getText();
         return text == null ? null : text.toString();
+    }
+
+    public void setText(CharSequence text) {
+        editTextView.setText(text);
+    }
+
+    public void setText(@StringRes int stringRes){
+        editTextView.setText(stringRes);
     }
 
     @Nullable
