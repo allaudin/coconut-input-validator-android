@@ -150,6 +150,14 @@ public class CoconutErrorAwareEt extends LinearLayout implements CoconutInput, C
         return validationRegex;
     }
 
+    public EditText getEditTextView() {
+        return editTextView;
+    }
+
+    public TextView getErrorTextView() {
+        return errorTextView;
+    }
+
     @Nullable
     @Override
     public String getErrorMessages() {
