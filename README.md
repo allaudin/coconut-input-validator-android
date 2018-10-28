@@ -1,3 +1,6 @@
+# Deprecated
+This version is deprecated and no longer maintainer. Please use the [new version](https://github.com/allaudin/coconut)
+
 
 # Coconut Input Validator for Android
 [![Build Status](https://travis-ci.org/allaudin/coconut-input-validator-android.svg?branch=master)](https://travis-ci.org/allaudin/coconut-input-validator-android) [![Maintainability](https://api.codeclimate.com/v1/badges/0f0b049a41a49a6c20c3/maintainability)](https://codeclimate.com/github/allaudin/coconut-input-validator-android/maintainability) [![](http://starveller.sigsev.io/api/repos/allaudin/coconut-input-validator-android/badge)](http://starveller.sigsev.io/allaudin/coconut-input-validator-android) [ ![Download](https://api.bintray.com/packages/mallaudin/android/coconutvalidator/images/download.svg) ](https://bintray.com/mallaudin/android/coconutvalidator/_latestVersion)
